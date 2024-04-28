@@ -6,15 +6,16 @@ import csv
 import requests
 import sys
 
+
 def export_data():
     """ Method to export related data """
     user_id = sys.argv[1]
-    
+
     user = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
     todos = 'https://jsonplaceholder.typicode.com/todos/?userId={}'.format(
         user_id
     )
-    
+
     name = requests.get(user).json().get('username')
     todo_requests = requests.get(todos).json()
 
